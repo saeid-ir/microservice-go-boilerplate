@@ -1,8 +1,8 @@
 package conf
 
 import (
-	"os"
 	"errors"
+	"os"
 )
 
 func GetEnvVariable(name string) (value string, error error) {

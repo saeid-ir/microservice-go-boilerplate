@@ -1,8 +1,8 @@
 package conf
 
 import (
-	"time"
 	"github.com/fsnotify/fsnotify"
+	"time"
 )
 
 // FileWatcher watches a file on a set interval, and preforms de-duplication of write
@@ -50,6 +50,7 @@ func (this *FileWatcher) run() {
 	for {
 		select {
 		case event := <-this.fsNotify.Events:
+			// Kubernetes Usage:
 			// When a ConfigMap update occurs kubernetes AtomicWriter() creates a new directory;
 			// writing the updated ConfigMap contents to the new directory. Once the write is
 			// complete it removes the original file symlink and replaces it with a new symlink
