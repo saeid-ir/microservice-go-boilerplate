@@ -45,18 +45,18 @@ func (this *MutexConfigManager) Close() {
 }
 
 // Set is ChannelConfigManager type setter
-func (self *ChannelConfigManager) Set(conf *Config) {
-	self.set <- conf
+func (this *ChannelConfigManager) Set(conf *Config) {
+	this.set <- conf
 }
 
 // get is ChannelConfigManager type getter
-func (self *ChannelConfigManager) Get() *Config {
-	return <-self.get
+func (this *ChannelConfigManager) Get() *Config {
+	return <-this.get
 }
 
 // Close close the current channel and stop goroutine
-func (self *ChannelConfigManager) Close() {
-	self.done <- true
+func (this *ChannelConfigManager) Close() {
+	this.done <- true
 }
 
 // NewMutexConfigManager return the new instance of MutexConfigManager type
